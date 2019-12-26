@@ -20,8 +20,8 @@ let gameManager = {
              break;
          };
          const interface = document.querySelector('.interface');
-         interface.innerHTML = "<img src=img/avatars-characters/" +
-         classType.toLowerCase() + ".jpg>" + "<h3>" + classType +"</h3>";
+         interface.innerHTML = "<a><img src=img/avatars-characters/" +
+         classType.toLowerCase() + ".jpg>" + "<h3>" + classType +"</h3></a>";
 
     },
     setPreFight: function(){
