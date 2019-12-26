@@ -8,16 +8,16 @@ let gameManager = {
          switch(classType){
              case "Warrior":
                  player = new Player(classType,200,100,200,100,50);
-             break;
-             case "Rogue":
+              break;
+             case "Rougue":
                  player = new Player(classType,200,100,200,100,50);
-             break;
+              break;
              case "Mage":
                  player = new Player(classType,200,100,100,100,100);
-             break;
+              break;
              case "Hunter":
                  player = new Player(classType,200,100,200,100,50);
-             break;
+              break;
          };
          const interface = document.querySelector('.interface');
         /* interface.innerHTML = "<a><img src=img/avatars-characters/" +
@@ -32,6 +32,8 @@ let gameManager = {
          for(let key in player){
             obj_data_html += `<p>${capilalize(key)}: ${player[key]}</p>`;
          }
+         if(!obj_data_html) console.log("A error Ocurred - failure create obj string data");
+
          interface.innerHTML = `<a><img src="img/avatars-characters/${classType.toLowerCase()}.jpg">
          <div>${obj_data_html}</div></a>`;
 
