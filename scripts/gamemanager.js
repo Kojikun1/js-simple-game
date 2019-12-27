@@ -18,6 +18,8 @@ let gameManager = {
              case "Hunter":
                  player = new Player(classType,200,100,200,100,50);
               break;
+             default:
+                 console.log("A error occurred - failure to create obj player");
          };
          const interface = document.querySelector('.interface');
         /* interface.innerHTML = "<a><img src=img/avatars-characters/" +
@@ -32,13 +34,40 @@ let gameManager = {
          for(let key in player){
             obj_data_html += `<p>${capilalize(key)}: ${player[key]}</p>`;
          }
-         if(!obj_data_html) console.log("A error Ocurred - failure create obj string data");
-
+         
          interface.innerHTML = `<a><img src="img/avatars-characters/${classType.toLowerCase()}.jpg">
          <div>${obj_data_html}</div></a>`;
 
     },
     setPreFight: function(){
-           
+        const header = document.querySelector('.header');
+        const actions = document.querySelector('.actions');
+        const arena = document.querySelector(".arena");
+        const enemy = document.querySelector('.enemy');
+
+        header.innerHTML = '<h2>Choose You Move</h2>';
+
+        actions.innerHTML = '<a href="#" class="btn-search">Search for Enemy</a>';
+
+        document.querySelector('.btn-search').addEventListener("click",this.setFight);
+
+        arena.style.display = "block";
+    },
+    setFight(){
+        const getEnemy = document.querySelector(".enemy");
+
+        let choose = Math.floor(Math.random() * 2);
+        switch(choose){
+            case 0:
+                enemy = new Enemy("Globlin",100,0,50,100,100);
+               break;
+            case 1:
+                enemy = new Enemy("Troll",200,0,150,80,100);
+                break;
+        };
+
+        getEnemy.innerHTML = `<img src="img/enemy/${enemy.enemyType.toLowerCase()}.jpg">
+        `;
+
     }
 }

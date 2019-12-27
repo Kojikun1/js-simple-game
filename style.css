@@ -9,3 +9,9 @@ img{
 .interface a{
     display: flex;
 }
+.arena{
+    display: none;
+}
+.arena img{
+    width: 320px;
+}
