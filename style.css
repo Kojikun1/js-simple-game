@@ -6,7 +6,7 @@
 img{
     width: 160px;
 }
-.interface a{
+.display-flex a{
     display: flex;
 }
 .arena{

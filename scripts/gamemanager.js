@@ -56,7 +56,7 @@ let gameManager = {
     setFight(){
         const getEnemy = document.querySelector(".enemy");
 
-        let choose = Math.floor(Math.random() * 2);
+        let choose = Math.floor(Math.random() * 4);
         switch(choose){
             case 0:
                 enemy = new Enemy("Globlin",100,0,50,100,100);
@@ -64,10 +64,21 @@ let gameManager = {
             case 1:
                 enemy = new Enemy("Troll",200,0,150,80,100);
                 break;
+            case 2:
+                    enemy = new Enemy("Wolf",100,0,50,100,100);
+                break;
+            case 3:
+                    enemy = new Enemy("Aligator",200,0,150,80,100);
+                break;
         };
-
-        getEnemy.innerHTML = `<img src="img/enemy/${enemy.enemyType.toLowerCase()}.jpg">
-        `;
-
+        function capilalize(word){
+            return word.charAt(0).toUpperCase() + word.slice(1);
+        }
+        let obj_data_html = "";
+        for(let key in enemy){
+           obj_data_html += `<p>${capilalize(key)}: ${enemy[key]}</p>`;
+        }
+        getEnemy.innerHTML = `<a><img src="img/enemy/${enemy.enemyType.toLowerCase()}.jpg">
+        <div>${obj_data_html}</div></a>`;
     }
 }
