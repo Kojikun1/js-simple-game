@@ -77,8 +77,22 @@ let gameManager = {
         let obj_data_html = "";
         for(let key in enemy){
            obj_data_html += `<p>${capilalize(key)}: ${enemy[key]}</p>`;
-        }
-        getEnemy.innerHTML = `<a><img src="img/enemy/${enemy.enemyType.toLowerCase()}.jpg">
-        <div>${obj_data_html}</div></a>`;
+        };
+            let enemies = ["globlin","troll","wolf","aligator"];
+            let num = 0, cont = 0;
+            let t = setInterval(()=>{
+                getEnemy.innerHTML = `<img src="img/enemy/${enemies[num]}.jpg">`
+                num++;
+                if(num >= 4){
+                    num = 0;
+                }
+                cont++;
+                if(cont >= 8){
+                    clearInterval(t);
+                    getEnemy.innerHTML = `<a><img src="img/enemy/${enemy.enemyType.toLowerCase()}.jpg">
+                    <div>${obj_data_html}</div></a>`;
+                }
+            },200);
+        
     }
 }
