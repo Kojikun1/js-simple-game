@@ -42,18 +42,18 @@ let playerMoves = {
 
             if(opponent.type == "Enemy"){
                 if(opponent.health <= 0){
-                    alert(`${character.type}Win! Refresh the Browser to Play Again`);
+                    alert(`You Win! Refresh the Browser to Play Again`);
                     getEnemyHealth.innerHTML = "Health: 0" ;
                 }else{
-                     getEnemyHealth.innerHTML = "Health" + opponent.health;
+                     getEnemyHealth.innerHTML = "Health: " + opponent.health;
                      calcAttackDamage(enemy,player);
-                }
+                };
             }else if(opponent.type == "Player"){
                 if(opponent.health <= 0){
-                    alert(`${character.type}Win! Refresh the Browser to Play Again`);
+                    alert(`Enemy Win! Refresh the Browser to Play Again`);
                     getPlayerHealth.innerHTML = "Health: 0" ;
                 }else{
-                     getPlayerHealth.innerHTML = "Health" + opponent.health;
+                     getPlayerHealth.innerHTML = "Health: " + opponent.health;
                      calcAttackDamage(player,enemy);
                 };
             };
