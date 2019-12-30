@@ -32,8 +32,12 @@ let gameManager = {
          }
          let obj_data_html = "";
          for(let key in player){
-            obj_data_html += `<p>${capilalize(key)}: ${player[key]}</p>`;
-         }
+            if(key == "health"){
+                obj_data_html += `<p class="health-player" >${capilalize(key)}: ${player[key]}</p>`;
+            }else{
+                obj_data_html += `<p>${capilalize(key)}: ${player[key]}</p>`;
+            };
+         };
          
          interface.innerHTML = `<a><img src="img/avatars-characters/${classType.toLowerCase()}.jpg">
          <div>${obj_data_html}</div></a>`;
@@ -43,7 +47,6 @@ let gameManager = {
         const header = document.querySelector('.header');
         const actions = document.querySelector('.actions');
         const arena = document.querySelector(".arena");
-        const enemy = document.querySelector('.enemy');
 
         header.innerHTML = '<h2>Choose You Move</h2>';
 
@@ -76,7 +79,11 @@ let gameManager = {
         }
         let obj_data_html = "";
         for(let key in enemy){
-           obj_data_html += `<p>${capilalize(key)}: ${enemy[key]}</p>`;
+            if(key == "health"){
+                obj_data_html += `<p class="health-enemy" >${capilalize(key)}: ${enemy[key]}</p>`;
+            }else{
+                obj_data_html += `<p>${capilalize(key)}: ${enemy[key]}</p>`;
+            };
         };
             let enemies = ["globlin","troll","wolf","aligator"];
             let num = 0, cont = 0;
@@ -91,6 +98,8 @@ let gameManager = {
                     clearInterval(t);
                     getEnemy.innerHTML = `<a><img src="img/enemy/${enemy.enemyType.toLowerCase()}.jpg">
                     <div>${obj_data_html}</div></a>`;
+                    const actions = document.querySelector('.actions');
+                    actions.innerHTML = '<a href="#" onclick="playerMoves.calcAttacks()">Attack</a>';
                 }
             },200);
         

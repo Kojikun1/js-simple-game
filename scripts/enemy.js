@@ -7,4 +7,5 @@ function Enemy(enemyType, health, mana,strenght,agility,speed){
     this.strenght = strenght;
     this.agility = agility;
     this.speed = speed;
+    this.type = "Enemy";
 }
